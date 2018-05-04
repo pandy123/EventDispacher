@@ -40,6 +40,7 @@ export class EventDispacher {
          )
       } else {
          this.callbacks[name] = new Array<EventListner>();
+         this.events.push(name);
          this.callbacks[name].push({
             callback,
             sender,
@@ -75,6 +76,7 @@ export class EventDispacher {
          )
       } else {
          this.callbacks[name] = new Array<EventListner>();
+         this.events.push(name);
          this.callbacks[name].push({
             callback,
             sender,
@@ -90,7 +92,7 @@ export class EventDispacher {
     * @param name 
     * @param callback 
     */
-   public removeListenr(name: string, callback = null) {
+   public removeListener(name: string, callback = null) {
       if (this._hasEvent(name)) {
          if (callback === null) {
             var index = this.events.indexOf(name);
@@ -133,7 +135,7 @@ export class EventDispacher {
                if (lisner.count == 0) {
                   lisner.callback(event);
                   lisner.count--;
-               } else {
+               } else if (lisner.count > 0) {
                   lisner.callback(event);
                   lisner.count++;
                }

@@ -1,6 +1,6 @@
 {
     "name": "eventdispacher",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "description": "this package is for event listening",
     "main": "build/index.js",
     "dependencies": {},
