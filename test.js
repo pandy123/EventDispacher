@@ -1,8 +1,25 @@
 var eventEmitter = require('./build')
 var test = new eventEmitter.EventDispacher()
 var con = function(event) {
+        console.log(event.name)
+    }
+    /**只添加一次回调 */
+test.once(this, 'once', con)
+test.dispach('once', { name: 'once' })
+test.dispach('once', { name: 'once' })
+
+var add1 = function(event) {
     console.log(event.name)
 }
-test.once(this, 'dd', con)
-test.dispach('dd', { name: 'yes' })
-test.dispach('dd', { name: 'yes' })
+test.addListener(this, 'add', add1)
+var add2 = function(event) {
+        console.log(event.name)
+    }
+    /**只添加一次回调 */
+test.addListener(this, 'add', add2)
+test.dispach('add', { name: 'add' })
+
+test.removeListener('add', add1)
+test.dispach('add', { name: 'add' })
+test.clear()
+test.dispach('add', { name: 'add' })

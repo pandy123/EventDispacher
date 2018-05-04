@@ -31,14 +31,18 @@ export class EventDispacher {
    public addListener(sender: any, name: string, callback: Function, weight: number = 1) {
       var count = 1;
       if (this._hasEvent(name)) {
-         this.callbacks[name].push({
-            callback,
-            sender,
-            weight,
-            count
+         /**避免重复注册 */
+         if (this._getCallbackIndex(name, callback as any) < 0) {
+            this.callbacks[name].push({
+               callback,
+               sender,
+               weight,
+               count
+            }
+            )
          }
-         )
-      } else {
+      }
+      else {
          this.callbacks[name] = new Array<EventListner>();
          this.events.push(name);
          this.callbacks[name].push({
@@ -53,6 +57,7 @@ export class EventDispacher {
       return this;
    }
 
+   /**是否有该事件 */
    private _hasEvent(name: string) {
       return this.events.indexOf(name) > -1;
    }
@@ -67,13 +72,16 @@ export class EventDispacher {
    once(sender: any, name: string, callback: Function, weight: number = 1) {
       var count = 0;
       if (this._hasEvent(name)) {
-         this.callbacks[name].push({
-            callback,
-            sender,
-            weight,
-            count
+         /**避免重复注册 */
+         if (this._getCallbackIndex(name, callback as any) < 0) {
+            this.callbacks[name].push({
+               callback,
+               sender,
+               weight,
+               count
+            }
+            )
          }
-         )
       } else {
          this.callbacks[name] = new Array<EventListner>();
          this.events.push(name);
