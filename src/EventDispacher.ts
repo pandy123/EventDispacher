@@ -30,7 +30,7 @@ export class EventDispacher {
     */
    public addListener(sender: any, name: string, callback: Function, weight: number = 1) {
       var count = 1;
-      if (this._hasEvent) {
+      if (this._hasEvent(name)) {
          this.callbacks[name].push({
             callback,
             sender,
@@ -65,7 +65,7 @@ export class EventDispacher {
     */
    once(sender: any, name: string, callback: Function, weight: number = 1) {
       var count = 0;
-      if (this._hasEvent) {
+      if (this._hasEvent(name)) {
          this.callbacks[name].push({
             callback,
             sender,
