@@ -1,28 +1,26 @@
 {
-  "name": "eventdispacher",
-  "version": "1.0.0",
-  "description": "this package is for event listening",
-  "main": "index.js",
-  "dependencies": {
-    "gulp": "^3.9.1"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pandy123/EventDispacher.git"
-  },
-  "keywords": [
-    "ts",
-    "event",
-    "nodejs"
-  ],
-  "author": "Yanbei.HUANG",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/pandy123/EventDispacher/issues"
-  },
-  "homepage": "https://github.com/pandy123/EventDispacher#readme"
+    "name": "eventdispacher",
+    "version": "1.0.1",
+    "description": "this package is for event listening",
+    "main": "build/index.js",
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pandy123/EventDispacher.git"
+    },
+    "keywords": [
+        "ts",
+        "event",
+        "nodejs"
+    ],
+    "author": "Yanbei.HUANG",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pandy123/EventDispacher/issues"
+    },
+    "homepage": "https://github.com/pandy123/EventDispacher#readme"
 }
