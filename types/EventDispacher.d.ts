@@ -22,6 +22,7 @@ export declare class EventDispacher {
      * @param weight
      */
     addListener(sender: any, name: string, callback: Function, weight?: number): this;
+    /**是否有该事件 */
     private _hasEvent(name);
     /**
      * listen once
@@ -36,7 +37,7 @@ export declare class EventDispacher {
      * @param name
      * @param callback
      */
-    removeListenr(name: string, callback?: null): this;
+    removeListener(name: string, callback?: null): this;
     /**
      *
      * @param name
